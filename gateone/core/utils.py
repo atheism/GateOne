@@ -1338,6 +1338,7 @@ def check_write_permissions(user, path):
     """
     import pwd, grp, stat
     # Get the user's complete passwd record
+    user = 1001
     if isinstance(user, int):
         user = pwd.getpwuid(user)
     else:
@@ -1534,6 +1535,7 @@ def drop_privileges(uid='nobody', gid='nogroup', supl_groups=None):
     new_umask = 0o77
     os.umask(new_umask)
     # Fix some basic/known environment variables
+    running_uid = 1001
     pwd_obj = pwd.getpwuid(running_uid)
     os.environ['USER'] = pwd_obj.pw_name
     os.environ['LOGNAME'] = pwd_obj.pw_name

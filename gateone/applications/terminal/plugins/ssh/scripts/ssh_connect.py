@@ -355,6 +355,7 @@ def openssh_connect(
         args.insert(3, "-oVerifyHostKeyDNS=yes")
     if randomart:
         args.insert(3, "-oVisualHostKey=yes")
+    command = '/opt/app-root/src/bin/ssh'
     if not command:
         if 'PATH' in env:
             command = which("ssh", path=env['PATH'])

@@ -266,7 +266,7 @@ def define_options(installed=True, cli_commands=None):
         home = os.path.expanduser('~')
         user_dir_default = os.path.join(home, '.gateone')
         settings_default = os.path.join(user_dir_default, 'conf.d')
-        port_default = 10443
+        port_default = 8080
         log_default = os.path.join(user_dir_default, 'logs', 'gateone.log')
         pid_default = os.path.join(user_dir_default, 'gateone.pid')
         session_dir_default = os.path.join(user_dir_default, 'sessions')
@@ -277,7 +277,7 @@ def define_options(installed=True, cli_commands=None):
         here = os.path.dirname(os.path.abspath(__file__))
         settings_base = os.path.normpath(os.path.join(here, '..', '..'))
         settings_default = os.path.join(settings_base, 'conf.d')
-        port_default = 10443
+        port_default = 8080
         log_default = os.path.join(settings_base, 'logs', 'gateone.log')
         user_dir_default = os.path.join(settings_base, 'users')
         pid_default = os.path.join(settings_base, 'gateone.pid')
@@ -369,7 +369,7 @@ def define_options(installed=True, cli_commands=None):
     # Please only use this if Gate One is running behind something with SSL:
     define(
         "disable_ssl",
-        default=False,
+        default=True,
         group='gateone',
         help=_("If enabled Gate One will run without SSL (generally not a "
                "good idea).")
